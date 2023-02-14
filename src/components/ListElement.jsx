@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 export const ListElement = ({title, imageUrl, onClick, id}) => {
     const handleClick = () => onClick(id);
     return (
-        <div className="card mb-5 mx-3 mt-4" onClick={handleClick}>
+        <div className="card mb-5 mx-4 mt-4" style={{minWidth: '22rem', maxWidth: '25rem'}} onClick={handleClick}>
             <img className="card-img-top" src={imageUrl} alt="image" />
             <div className="card-body">
-                <h5 className="card-title font-weight-bold text-center">{title}</h5>
+                <h6 className="card-title font-weight-bold text-center">{title}</h6>
             </div>
         </div>
     )

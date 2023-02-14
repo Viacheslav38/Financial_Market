@@ -1,14 +1,17 @@
 import React from 'react';
 import { useLocation } from "react-router-dom";
+import {data} from '../components/mock';
 import {SingleArticle} from '../components/SingleArticle';
-import {FirebaseContext} from '../firebase/firebaseContext'
 
 export const Article = () => {
     const {search} = useLocation();
     const id = search.slice(4);
-    const {articles} = React.useContext(FirebaseContext);
-    const article = articles.find(item => String(item.id) === id) || {};
+    const [dataById, setDataById] = React.useState({});
+    React.useEffect(() => {
+        const elem = data.find(item => String(item.id) === id);
+        setDataById(elem)
+    }, []);
     return (
-        <SingleArticle data={article}/>
+        <SingleArticle data={dataById}/>
     )
 }
