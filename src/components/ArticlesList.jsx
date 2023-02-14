@@ -5,8 +5,10 @@ import { useHistory } from "react-router-dom";
 
 export const ArticlesList = ({data}) => {
     const history = useHistory();
-    const handleClick = (id) => history.push(`/article?id=${id}`);
-    
+    const handleClick = (id) => {
+        console.log(id);
+        history.push(`/article?id=${id}`);
+    }
     return (
         <div className="card-group p-4 mx-3 justify-content-center">   
             {data.map(item => (
